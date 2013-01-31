@@ -1,0 +1,5 @@
+<% ['yokizo', 'sabichem', 'LuckOfWise', 'aguuu'].each do |v| %>
+<%= v %>:
+  name: <%= v %>
+  uid: <%= v %>
+<% end %>

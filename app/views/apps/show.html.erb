@@ -1,0 +1,54 @@
+<ul class="breadcrumb step-nav">
+  <li><%= link_to 'Application List', apps_path %> <span class="divider">/</span>
+  <li><%= @app.name %>
+</ul>
+<div class="row page-title-container">
+  <div class="span6">
+    <h2>Application Details</h2>
+  </div>
+  <div class="span6">
+  </div>
+</div>
+<% if notice.present? %>
+<div class="alert alert-info">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <%= notice %>
+</div>
+<% end %>
+<dl class="dl-horizontal detail-container">
+  <% if @app.icon.present? %>
+  <dt>Icon:
+  <dd><%= image_tag @app.icon.url %>
+  <% end %>
+  <dt>Name:
+  <dd><%= @app.name %>
+  <dt>Application Key:
+  <dd><%= @app.app_key %>
+  <dt>Store url:
+  <dd><%= @app.store_url %>
+</dl>
+<div class="form-actions">
+  <%= link_to raw('<i class="icon-edit icon-white"></i> Edit'), edit_app_path(@app), :class => 'btn btn-info' %>
+  <%= link_to raw('<i class="icon-trash icon-white"></i> Destroy'), '#destroyModal', :class => 'btn btn-danger', 'data-toggle' => 'modal' %>
+</div>
+<!-- Modal -->
+<div id="destroyModal" class="modal hide fade">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>Confirm</h3>
+  </div>
+  <div class="modal-body">
+    <p>Are you sure?</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal">Cancel</button>
+    <%= link_to raw('<i class="icon-trash icon-white"></i> Destroy'), @app, method: :delete, :class => 'btn btn-danger' %>
+  </div>
+</div>
+<script>
+  $(function() {
+    $('#destroyModal').modal({
+      show: false
+    });
+  });
+</script>

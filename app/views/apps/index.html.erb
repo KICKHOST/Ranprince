@@ -1,0 +1,26 @@
+<div class="row page-title-container">
+  <div class="span6">
+    <h2>Application List</h2>
+  </div>
+  <div class="span6">
+    <%= link_to raw('<i class="icon-plus icon-white"></i> New App'), new_app_path, :class => 'btn btn-success pull-right' %>
+  </div>
+</div>
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>Icon</th>
+    <th>Name</th>
+    <th>Store url</th>
+    <th>Application Key</th>
+    <th>Ranking</th>
+  </tr>
+<% @apps.each do |app| %>
+  <tr>
+    <td><%= image_tag app.icon.url if app.icon.present? %></td>
+    <td><%= link_to app.name, app %></td>
+    <td><%= link_to app.store_url, app.store_url, :target => '_blank' %></td>
+    <td><%= app.app_key %></td>
+    <td><%= link_to raw('<i class="icon-signal icon-white"></i> Ranking'), app_ranking_index_path(app), :class => 'btn btn-info' %></td>
+  </tr>
+<% end %>
+</table>

@@ -1,0 +1,17 @@
+<% 1000.times do |i| %>
+score_report<%= i %>:
+  app: CoolContactsApp
+  score: <%= Random.rand(0..100) %>
+  device_id: <%= Random.rand(1..3) %>
+  created_at: <%= Time.now - (i / 10).day %>
+  player: <%= ['yokizo', 'sabichem', 'LuckOfWise', 'aguuu'][Random.rand(0..3)] %>
+<% end %>
+
+<% 500.times do |i| %>
+score_report<%= i %>:
+  app: TwiScrollApp
+  score: <%= Random.rand(0..1000) %>
+  device_id: <%= Random.rand(1..3) %>
+  created_at: <%= Time.now - (i / 10).day %>
+  player: <%= ['yokizo', 'sabichem', 'LuckOfWise', 'aguuu'][Random.rand(0..3)] %>
+<% end %>

@@ -1,0 +1,9 @@
+CoolContactsApp:
+  name: CoolContacts
+  store_url: http://www.kickhost.jp/hoge
+  app_key: 'aaa'
+
+TwiScrollApp:
+  name: TwiScroll
+  store_url: http://www.kickhost.jp/twiscroll
+  app_key: 'bbb'

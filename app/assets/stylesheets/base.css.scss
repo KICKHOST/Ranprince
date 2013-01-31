@@ -1,0 +1,96 @@
+@import 'compass';
+
+$space_large: 20px;
+$space_middle: 10px;
+$header_color: #252525;
+
+// Global
+body {
+  background-color: #f4f4f4;
+}
+
+// Header navigation.
+$header_text_color: #eee;
+header {
+  padding: $space_middle $space_large;
+  @include box-shadow(2px 0px 4px rgba(0,0,0,0.5));
+  background-color: $header_color;
+  #site_title {
+    h1 {
+      margin: 0;
+      padding: 0;
+      font-size: 1.7em;
+      font-weight: normal;
+      color: $header_text_color;
+    }
+    a {
+     color: $header_text_color;
+     text-decoration: none; 
+    }
+  }
+
+  .header-nav {
+    ul {
+      margin: 0;
+      padding: 0;
+      li {
+        a {
+          color: $header_text_color;
+          &:hover {
+            text-decoration: underline;
+            background-color: transparent;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Content
+.content-container {
+  margin: 0;
+  padding: $space_large;
+  > .span12 {
+    margin: 0;
+    padding: $space_large;
+    border: 1px solid #dadada;
+    @include border-radius(4px);
+    @include box-shadow(0 1px 2px rgba(0, 0, 0, .075));
+    background-color: #fff;
+  }
+}
+
+.page-title-container {
+  padding: $space_middle 0;
+  h2 {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.detail-container {
+  dt, dd {
+    margin-bottom: $space_middle;
+  }
+}
+
+.field_with_errors {
+  input[type="text"] {
+    border: 2px solid #b94a48;
+  }
+}
+
+// Button
+.btn.active {
+  border-color: #c6c6c6;
+}
+
+// Footer
+footer {
+  margin-top: $space_large;
+  padding: $space_large * 2;
+  text-align: center;
+  color: #fff;
+  font-weight: normal;
+  background-color: $header_color;
+}

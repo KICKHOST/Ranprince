@@ -1,0 +1,13 @@
+<ul class="breadcrumb step-nav">
+  <li><%= link_to 'Application List', apps_path %> <span class="divider">/</span>
+  <li><%= link_to @app.name, @app %> <span class="divider">/</span>
+  <li>Editing
+</ul>
+<div class="row page-title-container">
+  <div class="span6">
+    <h2>Editing Application</h2>
+  </div>
+  <div class="span6">
+  </div>
+</div>
+<%= render 'form' %>

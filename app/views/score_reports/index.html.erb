@@ -1,0 +1,59 @@
+<ul class="breadcrumb step-nav">
+  <li><%= link_to 'Application List', apps_path %> <span class="divider">/</span>
+  <li><%= @app.name %> Ranking
+</ul>
+<div class="row page-title-container">
+  <div class="span6">
+    <h2><%= @app.name %> Ranking</h2>
+  </div>
+  <div class="span6">
+  </div>
+</div>
+<div>
+  <%= form_for app_ranking_index_path, :remote => true, :method => :get, :html => { :class => 'form-search' } do |f| %>
+    <%= hidden_field_tag :time_type, @time_type_name %>
+    <div class="navbar navbar-googlenav">
+      <div class="navbar-inner">
+        <div class="btn-toolbar">
+          <div class="btn-group">
+            <% TimeType.names.each do |name| %>
+            <% class_vlaue = @time_type_name == name ? 'btn active' : 'btn' %>
+            <% class_vlaue = 'btn active' if @time_type_name.blank? && name == TimeType::ALL %>
+            <%= link_to name, app_ranking_index_path(:device => @device_key, :time_type => name), :class => class_vlaue %>
+            <% end %>
+          </div>
+          <div class="btn-group">
+            <%= f.label :device %>
+            <%= select_tag :device, options_from_collection_for_select(Device.all, :key, :name, @device_key), :include_blank => true %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>Rank</th>
+    <th>Created at</th>
+    <th>
+      <%= link_to 'Score', app_ranking_index_path(:order => @order_param, :device => @device_key) %>
+      <i class="<%= @order_param == 'desc' ? 'icon-arrow-down' : 'icon-arrow-up' %>"></i>
+    </th>
+    <th>Device</th>
+    <th>Player</th>
+  </tr>
+  <% @score_reports.each_with_index do |score_report, i| %>
+  <tr>
+    <td><%= i + 1 %></td>
+    <td><%= score_report.created_at %></td>
+    <td><%= score_report.score %></td>
+    <td><%= score_report.device.name %></td>
+    <td><%= score_report.player.name %></td>
+  </tr>
+  <% end %>
+</table>
+<script type="text/javascript">
+  $(function() {
+    $('#device').change(function() { this.form.submit(); });
+  });
+</script>

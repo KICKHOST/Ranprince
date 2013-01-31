@@ -1,0 +1,13 @@
+<ul class="breadcrumb step-nav">
+  <li><%= link_to 'Device List', devices_path %> <span class="divider">/</span>
+  <li><%= link_to @device.name, @device %> <span class="divider">/</span>
+  <li>Editing
+</ul>
+<div class="row page-title-container">
+  <div class="span6">
+    <h2>Editing Device</h2>
+  </div>
+  <div class="span6">
+  </div>
+</div>
+<%= render 'form' %>

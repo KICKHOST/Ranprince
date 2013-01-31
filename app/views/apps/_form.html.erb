@@ -1,0 +1,35 @@
+<%= form_for @app, :html => { :multipart => true, :class => 'form-horizontal' } do |f| %>
+  <% if @app.errors.any? %>
+    <div class="alert alert-error">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <h4><%= pluralize(@app.errors.count, "error") %> prohibited this app from being saved:</h4>
+      <ul>
+      <% @app.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'input-xlarge' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :store_url, :class => 'control-label' %>
+    <div class="controls">
+    <%= f.text_field :store_url, :class => 'input-xlarge' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :icon, :class => 'control-label' %>
+    <div class="controls">
+      <%= image_tag @app.icon.url if @app.icon.present? %><br />
+      <%= f.file_field :icon %>
+    </div>
+  </div>
+  <div class="form-actions">
+    <%= f.button raw('<i class="icon-ok icon-white"></i> Save'), :class => 'btn btn-success' %>
+  </div>
+<% end %>
