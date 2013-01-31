@@ -1,5 +1,27 @@
-Ranprince
+![Ranprince](logo.png)
 =========
+
+Description
+-------------
+This project is a simple ranking system.
+
+Features
+-------------
+Web
+- View list of applications.
+- View list of devices.
+- View rankings for each application.
+- Registration of the application.
+- Registration of the device.
+
+API
+- View rankings for each application.
+- Registration of the player.
+- Registration of the score.
+
+Screen shot
+-------------
+![Ranprince](screen_shot.png)
 
 API Reference
 -------------
@@ -71,3 +93,9 @@ API Reference
 
   uid (Require)
   : This is a device unique id.
+
+License
+-------------
+This project is released under the [Apache License v2.0](http://www.apache.org/licenses/LICENSE-2.0).  
+Copyright (c) 2013 [KICKHOST](http://www.kickhost.jp)
+
